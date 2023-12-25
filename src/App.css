@@ -1,0 +1,74 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+/*
+
+Media Query
+
+Small Devices (Smartphones):
+@media (max-width: 767px) { }
+This typically covers most smartphones in portrait mode.
+
+Medium Devices (Tablets):
+@media (min-width: 768px) and (max-width: 991px) {  }
+This range is often used for tablets.
+
+Large Devices (Desktops and Laptops):
+@media (min-width: 992px) and (max-width: 1199px) {  }
+This range typically covers most desktop and laptop screens.
+
+Extra Large Devices (Large Desktops):
+@media (min-width: 1200px) {  }
+This targets large desktop monitors. 
+*/
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#scroll-to-top:hover {
+  background-color: #555;
+}
+
+/* .addnote-show {
+  opacity: 1;
+  height: auto;
+} */
+
+.addnote-hide {
+  /* display: none; */
+  transition: opacity 0.8s, height 0.8s;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.addnote-container {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 2s, height 2s, visibility 2s;
+}
+
+.addnote-show {
+  opacity: 1;
+  visibility: visible;
+  height: auto; /* Adjust to a suitable value */
+  transition: opacity 2s, height 2s;
+}

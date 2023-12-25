@@ -1,0 +1,57 @@
+.add_note {
+  background-image: url("../assets/writing.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+form {
+  width: 75vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-family: "Amatic SC";
+  font-size: 30px;
+  letter-spacing: 0.5rem;
+}
+
+form div {
+  direction: rtl;
+
+  /* margin: 2rem 0 0 0; */
+}
+
+.label {
+  margin-top: 4rem;
+  height: 2rem;
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.label h2 {
+  margin: 0;
+  /* height: 30px; */
+}
+
+.button {
+  width: 47rem;
+  border-radius: 10px;
+  border: none;
+  color: aliceblue;
+  background-color: cadetblue;
+  font-family: "Amatic SC";
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+textarea,
+input {
+  border-radius: 10px;
+  border: 2px solid aliceblue;
+}

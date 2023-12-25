@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  /* display: flex; */
+}
+
+.bckground {
+  position: relative;
+  width: 100vw;
+  height: 183rem;
+  background-image: url("./assets/rimon3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* @media screen and (max-width: 790px) {
+  .bckground {
+    background-image: url("./assets/rimon3.psd");
+  }
+} */

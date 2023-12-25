@@ -1,0 +1,23 @@
+.scrolling-text-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: right;
+  margin-bottom: 5rem;
+}
+
+.image-and-text-container {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+  /* animation: scrollContent 15s linear infinite; */
+}
+
+@keyframes scrollContent {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

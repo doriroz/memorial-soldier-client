@@ -1,0 +1,21 @@
+.section {
+  margin-top: 5rem;
+}
+
+.img_container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 25rem 50rem 20rem;
+  /* repeat(3, 1fr); */
+}
+
+.img_grid {
+  padding: 10px;
+  background-color: #e0e0e0;
+}
+
+.img_grid:hover {
+  transform: scale(1.05);
+  transition: transform 1s;
+  filter: brightness(1);
+}

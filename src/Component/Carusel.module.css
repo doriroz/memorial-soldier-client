@@ -1,0 +1,39 @@
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: all 0.3s ease;
+  width: 166vw;
+  gap: 10px;
+}
+
+/* .carousel .note-card {
+  flex: 0 0 auto;
+  padding: 20px;
+  margin: 0 30px;
+  border: 1px solid #ccc;
+} */
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  border: none;
+  background: #ccc;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.prev-btn {
+  left: 22px;
+}
+
+.next-btn {
+  right: 30px;
+}

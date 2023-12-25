@@ -1,0 +1,50 @@
+.image-container {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.img_container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 25rem 50rem 20rem;
+  /* repeat(3, 1fr); */
+}
+
+.img_grid {
+  padding: 4px;
+  background-color: #ccb;
+}
+
+.img_grid:hover {
+  transform: scale(1.05);
+  transition: transform 1s;
+  filter: brightness(1.1);
+  background-color: #e0e0e0;
+}
+
+.img1,
+.img4 {
+  width: 20rem;
+}
+
+.img2 {
+  width: 15rem;
+}
+.img3 {
+  width: 10rem;
+}
+
+.p-gallery {
+  display: flex;
+  align-items: center;
+}
+
+.p-gallery {
+  color: azure;
+  text-align: right;
+  font-size: 1.7rem;
+  letter-spacing: 0.5rem;
+  font-family: "Amatic SC";
+  font-weight: bold;
+  line-height: 2;
+}

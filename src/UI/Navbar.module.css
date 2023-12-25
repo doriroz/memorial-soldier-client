@@ -1,0 +1,90 @@
+/* header */
+.header {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: inherit;
+  margin: 0;
+}
+
+.header p {
+  font-size: 2rem;
+  font-family: "Amatic SC";
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 990px) {
+  .header p {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .header p {
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+header p:hover {
+  animation: heartBeat 1s ease-in-out;
+}
+
+.candle {
+  width: 100px;
+  height: 56px;
+  margin: 1% 0.8%;
+}
+
+@media screen and (max-width: 990px) {
+  .candle {
+    width: 90px;
+    height: 51px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .candle {
+    width: 70px;
+    height: 39px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 15vw;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  /* margin: 2%; */
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.1);
+    color: aqua;
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.1);
+    color: aqua;
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
