@@ -10,21 +10,23 @@ const Videos = () => {
       </div>
 
       <h4>גודל הגבורה כגודל האסון - צפו בסירטונים</h4>
-
-      <div className={classes["video-contianer"]}>
-        <div className={classes["video-card"]}>
-          <iframe
-            src="https://www.youtube.com/embed/mCwXN8zJ_C4?si=PJMv7UMtF8WQRu9F"
-            // frameborder="0"
-          ></iframe>
-        </div>
-        <div className={classes["video-card"]}>
-          <iframe
-            src="https://www.youtube.com/embed/cmdUYq0DncE?si=7Pg82rIo6sc1Qfo0"
-            // frameborder="0"
-          ></iframe>
+      <div style={{ height: "15rem" }}>
+        <div className={classes["video-contianer"]}>
+          <div className={classes["video-card"]}>
+            <iframe
+              src="https://www.youtube.com/embed/mCwXN8zJ_C4?si=PJMv7UMtF8WQRu9F"
+              // frameborder="0"
+            ></iframe>
+          </div>
+          <div className={classes["video-card"]}>
+            <iframe
+              src="https://www.youtube.com/embed/cmdUYq0DncE?si=7Pg82rIo6sc1Qfo0"
+              // frameborder="0"
+            ></iframe>
+          </div>
         </div>
       </div>
+
       <div className={classes.footer}>
         <Share />
         <h3>
