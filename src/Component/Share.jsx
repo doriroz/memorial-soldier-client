@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./Share.module.css";
+import share from "../assets/share.png";
+
 const Button = (props) => {
   const style = {
     color: "black",
@@ -25,7 +27,7 @@ const Button = (props) => {
 
   return (
     <button className={classes.share} onClick={handleClick}>
-      <img style={style} src="./src/assets/share1.png" alt="" />
+      <img style={style} src={share} />
       {/* style={style} */}
       <span>שתף</span>
     </button>

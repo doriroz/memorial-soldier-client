@@ -12,8 +12,8 @@ import ImageScroll from "./Component/ImageScroll";
 import Gallery from "./Component/Gallery";
 import Carusel from "./Component/Carusel";
 import Videos from "./Component/Videos";
-import H1 from "./UI/H1";
-import AddNote from "./Component/AddNote";
+// import H1 from "./UI/H1";
+// import AddNote from "./Component/AddNote";
 
 function App() {
   const scrollRef = useRef(null);
@@ -51,7 +51,7 @@ function App() {
       <Section2>
         {/* <H1 title="תמונות בחייו" /> */}
         <Gallery />
-        <button onClick={handleAddNote}>פתח</button>
+        {/* <button onClick={handleAddNote}>פתח</button> */}
         {/* <div className={`addnote-container ${isShow ? "addnote-show" : ""}`}>
           <AddNote />
         </div> */}

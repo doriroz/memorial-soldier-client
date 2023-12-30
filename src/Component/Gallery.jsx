@@ -1,5 +1,9 @@
 import React from "react";
 import classes from "./Gallery.module.css";
+import mt2 from "../assets/matan2.jpg";
+import mt4 from "../assets/matan4.jpg";
+import mt6 from "../assets/matan6.jpg";
+import mt8 from "../assets/matan8.jpg";
 
 const Gallery = () => {
   const gridImg1 = `${classes["img_grid"]} ${classes.img1}`;
@@ -10,8 +14,8 @@ const Gallery = () => {
   return (
     <div className={classes["img_container"]}>
       <div>
-        <img className={gridImg1} src="../src/assets/matan2.jpg" />
-        <img className={gridImg4} src="../src/assets/matan8.jpg" />
+        <img className={gridImg1} src={mt2} />
+        <img className={gridImg4} src={mt8} />
       </div>
       <div className={classes["p-gallery"]}>
         <div>
@@ -30,8 +34,8 @@ const Gallery = () => {
         </div>
       </div>
       <div>
-        <img className={gridImg3} src="../src/assets/matan4.jpg" />
-        <img className={gridImg2} src="../src/assets/matan6.jpg" />
+        <img className={gridImg3} src={mt4} />
+        <img className={gridImg2} src={mt6} />
       </div>
     </div>
   );

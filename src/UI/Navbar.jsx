@@ -18,8 +18,6 @@ const Navbar = () => {
         <p ref={candleRef} onClick={clickHandle}>
           להדלקת נר לזיכרו
         </p>
-        {/* <img className={classes.candle} src="../src/assets/candle.gif" /> */}
-
         <a href="#sec_2">
           <p>תמונות בחייו</p>
         </a>
