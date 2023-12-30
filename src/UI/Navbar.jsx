@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import classes from "../UI/Navbar.module.css";
+import candle from "../assets/candle.gif";
 
 const Navbar = () => {
   const candleRef = useRef(null);
   const headRef = useRef(null);
   const clickHandle = () => {
     const imgElem = document.createElement("img");
-    imgElem.src = "../src/assets/candle.gif";
+    imgElem.src = candle;
     imgElem.className = classes.candle;
     headRef.current.removeChild(candleRef.current);
     headRef.current.insertBefore(imgElem, headRef.current.firstChild);

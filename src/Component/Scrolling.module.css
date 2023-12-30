@@ -10,7 +10,11 @@
   white-space: nowrap;
   display: flex;
   justify-content: space-around;
-  /* animation: scrollContent 15s linear infinite; */
+  animation: scrollContent 15s linear infinite;
+}
+
+.image-and-text-container:hover {
+  animation-play-state: paused;
 }
 
 @keyframes scrollContent {

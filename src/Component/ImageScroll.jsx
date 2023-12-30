@@ -1,4 +1,6 @@
 import React from "react";
+import mt6 from "../assets/matan6.jpg";
+import mt9 from "../assets/matan9.jpg";
 // const imageStyle = {
 //   display: "inline-block",
 //   whiteSpace: "nowrap",
@@ -19,8 +21,8 @@ const ImageScroll = () => {
         margin: "2rem 0",
       }}
     >
-      <img style={imageScroll} src="../src/assets/matan6.jpg" />
-      <img style={imageScroll} src="../src/assets/matan9.jpg" />
+      <img style={imageScroll} src={mt6} />
+      <img style={imageScroll} src={mt9} />
     </div>
   );
 };
