@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../UI/Navbar";
-import Title from "./Title";
+import Title from "../Component/Title";
 import classes from "./Section1.module.css";
 
 const Section1 = ({ children }) => {

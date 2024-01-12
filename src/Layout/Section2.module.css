@@ -19,3 +19,18 @@
   transition: transform 1s;
   filter: brightness(1);
 }
+
+.slideup {
+  animation: slideInUp 1s ease-in-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

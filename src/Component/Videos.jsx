@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Videos.module.css";
 import Share from "./Share";
+import butterfly from "../assets/butterfly.gif";
 
 const Videos = () => {
   return (
@@ -8,8 +9,11 @@ const Videos = () => {
       <div className={classes["strikethrough-text"]}>
         <p className={classes.text}>מילים לא מספיקות לתאר</p>
       </div>
-
-      <h4>גודל הגבורה כגודל האסון - צפו בסירטונים</h4>
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <img src={butterfly} />
+        <h4>גודל הגבורה כגודל האסון - צפו בסירטונים</h4>
+        <img src={butterfly} />
+      </div>
       <div style={{ height: "15rem" }}>
         <div className={classes["video-contianer"]}>
           <div className={classes["video-card"]}>
@@ -18,6 +22,7 @@ const Videos = () => {
               // frameborder="0"
             ></iframe>
           </div>
+
           <div className={classes["video-card"]}>
             <iframe
               src="https://www.youtube.com/embed/cmdUYq0DncE?si=7Pg82rIo6sc1Qfo0"

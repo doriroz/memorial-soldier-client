@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { inerSecContext } from "./IntersectionProvider";
+import { inerSecContext } from "../Component/IntersectionProvider";
 // import Carusel from "./Carusel";
 // import Videos from "./Videos";
 

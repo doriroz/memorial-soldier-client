@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-document.body.classList.add("bckground");
+// document.body.classList.add("bckground");
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

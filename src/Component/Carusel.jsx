@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classes from "./Carusel.module.css";
 import Note from "./Note";
 import Dots from "./Dots";
+import Dot from "./Dot";
 
 const Carusel = () => {
   const noteArr = [
@@ -49,46 +50,92 @@ const Carusel = () => {
   //       <br />
   //       יפעל באותה גבורה ויקפוץ על רימון כדי להציל את חבריו`,
 
+  const dotSteps = Math.round(Math.ceil(noteArr.length / 2));
+  const dotStepArr = Array.from({ length: dotSteps }, (_, i) => {
+    i + 1;
+  });
+
+  const [index, setIndex] = useState(0);
+  const [buttonsChecked, setButtonsChecked] = useState(
+    dotStepArr.map((_, i) => (i == 0 ? true : false))
+    // dotStepArr.map((_, i) => (i == 0 ? true : false))
+  );
   const prevRef = useRef();
   const nextRef = useRef();
   const caruselRef = useRef();
-  //   const containerRef = useRef();
   const noteRef = useRef();
-  let index = 0;
+  // let index = 0;
 
   useEffect(() => {
     prevRef.current.style.opacity = 0;
   }, []);
 
   const prevHandler = () => {
-    index = Math.max(index - 1, 0);
+    const newIndex = Math.max(index - 1, 0);
 
     prevRef.current.style.opacity = 1;
     nextRef.current.style.opacity = 1;
-    if (index == 0) {
+    if (newIndex == 0) {
       prevRef.current.style.opacity = 0;
       nextRef.current.style.opacity = 1;
     }
 
     caruselRef.current.style.transform = `translateX(${
-      -index * noteRef.current.getNoteWidth()
+      -newIndex * noteRef.current.getNoteWidth()
     }px)`;
+    console.log("prev: " + newIndex);
+
+    changeHandler(newIndex);
+    setIndex(newIndex);
   };
 
   const nextHandler = () => {
-    index = Math.min(index + 1, caruselRef.current.children.length);
-    const dd = caruselRef.current.children.length;
+    // console.log(index);
+    const newIndex = Math.min(index + 1, caruselRef.current.children.length);
+    const arrLength = caruselRef.current.children.length;
 
     prevRef.current.style.opacity = 1;
     nextRef.current.style.opacity = 1;
-    if (index == dd - 3) {
+    if (newIndex == arrLength - 3) {
       prevRef.current.style.opacity = 1;
       nextRef.current.style.opacity = 0;
     }
 
     caruselRef.current.style.transform = `translateX(${
-      -index * noteRef.current.getNoteWidth()
+      -newIndex * noteRef.current.getNoteWidth()
     }px)`;
+    console.log("next: " + newIndex);
+
+    changeHandler(newIndex);
+    setIndex(newIndex);
+  };
+
+  const changeHandler = (idx) => {
+    const newButtonsChecked = buttonsChecked.map(() => false);
+    console.log("change : " + idx);
+    newButtonsChecked[idx] = !newButtonsChecked[idx];
+    setButtonsChecked(newButtonsChecked);
+  };
+
+  const dotHandler = (idx) => {
+    const arrLength = caruselRef.current.children.length;
+    prevRef.current.style.opacity = 1;
+    nextRef.current.style.opacity = 1;
+    if (idx == 0) {
+      prevRef.current.style.opacity = 0;
+      nextRef.current.style.opacity = 1;
+    }
+    if (idx == arrLength - 3) {
+      prevRef.current.style.opacity = 1;
+      nextRef.current.style.opacity = 0;
+    }
+
+    caruselRef.current.style.transform = `translateX(${
+      -idx * noteRef.current.getNoteWidth()
+    }px)`;
+    console.log("idx: " + idx);
+
+    changeHandler(idx);
   };
 
   return (
@@ -119,7 +166,19 @@ const Carusel = () => {
       >
         →
       </button>
-      <Dots noteArr={noteArr} prev={prevHandler} next={nextHandler} />
+      {/* <div>
+        {dotStepArr.map(() => {
+          return <Dot checked={buttonsChecked} />;
+        })}
+      </div> */}
+
+      <Dots
+        dotArr={buttonsChecked}
+        changeHandler={changeHandler}
+        dotHandler={dotHandler}
+        prev={prevHandler}
+        next={nextHandler}
+      />
     </div>
   );
 };
