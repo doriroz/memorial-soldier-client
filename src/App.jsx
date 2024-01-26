@@ -2,8 +2,8 @@ import { useRef, useEffect, useState } from "react";
 import "./App.css";
 import Home from "./Pages/Home";
 import AddNote from "./Pages/AddNote";
-
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 function App() {
   const scrollRef = useRef(null);
 

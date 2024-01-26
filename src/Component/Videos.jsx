@@ -10,9 +10,9 @@ const Videos = () => {
         <p className={classes.text}>מילים לא מספיקות לתאר</p>
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <img src={butterfly} />
+        {/* <img src={butterfly} /> */}
         <h4>גודל הגבורה כגודל האסון - צפו בסירטונים</h4>
-        <img src={butterfly} />
+        {/* <img src={butterfly} /> */}
       </div>
       <div style={{ height: "15rem" }}>
         <div className={classes["video-contianer"]}>
@@ -34,6 +34,7 @@ const Videos = () => {
 
       <div className={classes.footer}>
         <Share />
+        <img src={butterfly} className={classes.butterfly} />
         <h3>
           מתן אברג'יל ממושב חרמש. בן 19 היה בנופלו.{" "}
           <span className={classes.span}>יהי זכרו ברוך</span>

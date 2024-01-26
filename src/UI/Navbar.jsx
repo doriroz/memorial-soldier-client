@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import classes from "../UI/Navbar.module.css";
+import classes from "./Navbar.module.css";
 import candle from "../assets/candle.gif";
 
 const Navbar = () => {

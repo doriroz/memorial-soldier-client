@@ -13,10 +13,16 @@ import ImageScroll from "../Component/ImageScroll";
 import Gallery from "../Component/Gallery";
 import Carusel from "../Component/Carusel";
 import Videos from "../Component/Videos";
+import Utils from "../UtilsRoute/utils";
 // https://youtu.be/yP-KX8xqS8Y?si=DhnB7it34HGE478t
 
 const Home = () => {
   const scrollRef = useRef(null);
+  const getNotes = (route) => {
+    return fetch("http://localhost:3000/" + route)
+      .then((response) => response.json())
+      .catch((error) => console.log(error.message));
+  };
 
   useEffect(() => {
     window.onscroll = () => {
@@ -29,6 +35,10 @@ const Home = () => {
         scrollRef.current.style.display = "none";
       }
     };
+  }, []);
+
+  useEffect(() => {
+    getNotes("notes/").then((data) => console.log(data));
   }, []);
 
   return (

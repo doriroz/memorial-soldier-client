@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import classes from "./Carusel.module.css";
 import Note from "./Note";
 import Dots from "./Dots";
-import Dot from "./Dot";
+import Button from "../UI/Button";
+// import { MongoClient } from "mongodb";
+// import ServiceHero from "../Services/notesService";
 
 const Carusel = () => {
   const noteArr = [
@@ -58,7 +60,6 @@ const Carusel = () => {
   const [index, setIndex] = useState(0);
   const [buttonsChecked, setButtonsChecked] = useState(
     dotStepArr.map((_, i) => (i == 0 ? true : false))
-    // dotStepArr.map((_, i) => (i == 0 ? true : false))
   );
   const prevRef = useRef();
   const nextRef = useRef();
@@ -179,6 +180,8 @@ const Carusel = () => {
         prev={prevHandler}
         next={nextHandler}
       />
+
+      <Button text="מעוניין לכתוב לזכרו" />
     </div>
   );
 };
