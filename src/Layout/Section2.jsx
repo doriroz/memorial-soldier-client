@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./Section2.module.css";
 import { inerSecContext } from "../Component/IntersectionProvider";
 

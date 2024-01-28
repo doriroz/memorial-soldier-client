@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../App.css";
+import classes from "../Component/Carusel.module.css";
 import Section1 from "../Layout/Section1";
 import Section2 from "../Layout/Section2";
 // import Section2Raplica from "../Layout/Section2Raplica";
@@ -13,16 +14,24 @@ import ImageScroll from "../Component/ImageScroll";
 import Gallery from "../Component/Gallery";
 import Carusel from "../Component/Carusel";
 import Videos from "../Component/Videos";
-import Utils from "../UtilsRoute/utils";
+import { getNotes, getNotesAsync } from "../UtilsRoute/utils";
 // https://youtu.be/yP-KX8xqS8Y?si=DhnB7it34HGE478t
 
 const Home = () => {
   const scrollRef = useRef(null);
-  const getNotes = (route) => {
-    return fetch("http://localhost:3000/" + route)
-      .then((response) => response.json())
-      .catch((error) => console.log(error.message));
-  };
+  const [isLoading, setIsLoading] = useState(true);
+  const [notesData, setNotesData] = useState();
+
+  useEffect(() => {
+    const fetchNotes = async () => {
+      const notesArray = await getNotesAsync("notes/");
+      console.log(notesArray);
+      setNotesData(notesArray);
+      setIsLoading(false);
+    };
+
+    fetchNotes();
+  }, [notesData]);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -37,10 +46,6 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(() => {
-    getNotes("notes/").then((data) => console.log(data));
-  }, []);
-
   return (
     <div className="bckground">
       <IntersectionProvider>
@@ -53,10 +58,15 @@ const Home = () => {
           </Scrolling>
         </Section1>
         <Section2>
-          {/* <H1 title="תמונות בחייו" /> */}
           <Gallery />
         </Section2>
-        {/* <H1 title="כותבים עליו"></H1> */}
+        {/* {isLoading && <div className={classes.loader}></div>}
+        {!isLoading && (
+          <Section3>
+            <Carusel notesData={notesData} />
+            <Videos />
+          </Section3>
+        )} */}
         <Section3>
           <Carusel />
           <Videos />

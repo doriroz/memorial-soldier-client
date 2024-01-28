@@ -9,8 +9,6 @@ const Section3 = ({ children }) => {
     <section id="sec_3">
       <h1 ref={h1Sec2Ref}>כותבים עליו</h1>
       {children}
-      {/* <Carusel />
-      <Videos /> */}
     </section>
   );
 };

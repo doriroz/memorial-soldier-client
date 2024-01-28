@@ -3,10 +3,11 @@ import classes from "./Carusel.module.css";
 import Note from "./Note";
 import Dots from "./Dots";
 import Button from "../UI/Button";
+import { getNotes, getNotesAsync } from "../UtilsRoute/utils";
 // import { MongoClient } from "mongodb";
 // import ServiceHero from "../Services/notesService";
 
-const Carusel = () => {
+const Carusel = (props) => {
   const noteArr = [
     {
       contact: ":חברו לנמר, דניאל",
@@ -61,15 +62,31 @@ const Carusel = () => {
   const [buttonsChecked, setButtonsChecked] = useState(
     dotStepArr.map((_, i) => (i == 0 ? true : false))
   );
+  const [isLoading, setIsLoading] = useState(true);
+  const [notesData, setNotesData] = useState();
   const prevRef = useRef();
   const nextRef = useRef();
   const caruselRef = useRef();
   const noteRef = useRef();
   // let index = 0;
 
+  // useEffect(() => {
+  //   prevRef.current.style.opacity = 0;
+  // }, []);
+
+  let notesArray = [];
   useEffect(() => {
-    prevRef.current.style.opacity = 0;
-  }, []);
+    const fetchNotes = async () => {
+      notesArray = await getNotesAsync("notes/");
+      console.log(notesArray);
+      setNotesData(notesArray);
+      setIsLoading(false);
+
+      prevRef.current.style.opacity = 0;
+    };
+
+    fetchNotes();
+  }, [notesData]);
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
@@ -91,7 +108,6 @@ const Carusel = () => {
   };
 
   const nextHandler = () => {
-    // console.log(index);
     const newIndex = Math.min(index + 1, caruselRef.current.children.length);
     const arrLength = caruselRef.current.children.length;
 
@@ -140,49 +156,85 @@ const Carusel = () => {
   };
 
   return (
-    <div className={classes["carousel-container"]}>
-      <div className={classes.carousel} ref={caruselRef}>
-        {noteArr.map((note, i) => {
-          return (
-            <Note
-              contact={note.contact}
-              context={note.context}
-              ref={noteRef}
-              key={i}
-            />
-          );
-        })}
-      </div>
-      <button
-        className={classes["prev-btn"]}
-        ref={prevRef}
-        onClick={prevHandler}
-      >
-        ←
-      </button>
-      <button
-        className={classes["next-btn"]}
-        ref={nextRef}
-        onClick={nextHandler}
-      >
-        →
-      </button>
-      {/* <div>
-        {dotStepArr.map(() => {
-          return <Dot checked={buttonsChecked} />;
-        })}
+    <>
+      {/* <div className={classes["carousel-container"]}>
+        <div className={classes.carousel} ref={caruselRef}>
+          {props.noteData.map((note, i) => {
+            return (
+              <Note
+                contact={note.contact}
+                context={note.context}
+                ref={noteRef}
+                key={i}
+              />
+            );
+          })}
+        </div>
+        <button
+          className={classes["prev-btn"]}
+          ref={prevRef}
+          onClick={prevHandler}
+        >
+          ←
+        </button>
+        <button
+          className={classes["next-btn"]}
+          ref={nextRef}
+          onClick={nextHandler}
+        >
+          →
+        </button>
+        <Dots
+          dotArr={buttonsChecked}
+          changeHandler={changeHandler}
+          dotHandler={dotHandler}
+          prev={prevHandler}
+          next={nextHandler}
+        />
+
+        <Button text="מעוניין לכתוב לזכרו" />
       </div> */}
+      {isLoading ? <div className={classes.loader}></div> : null}
+      {!isLoading && (
+        <div className={classes["carousel-container"]}>
+          <div className={classes.carousel} ref={caruselRef}>
+            {notesData.map((note, i) => {
+              return (
+                <Note
+                  contact={note.contact}
+                  context={note.context}
+                  ref={noteRef}
+                  key={i}
+                />
+              );
+            })}
+          </div>
+          <button
+            className={classes["prev-btn"]}
+            ref={prevRef}
+            onClick={prevHandler}
+          >
+            ←
+          </button>
+          <button
+            className={classes["next-btn"]}
+            ref={nextRef}
+            onClick={nextHandler}
+          >
+            →
+          </button>
+          <Dots
+            dotArr={buttonsChecked}
+            changeHandler={changeHandler}
+            dotHandler={dotHandler}
+            prev={prevHandler}
+            next={nextHandler}
+          />
 
-      <Dots
-        dotArr={buttonsChecked}
-        changeHandler={changeHandler}
-        dotHandler={dotHandler}
-        prev={prevHandler}
-        next={nextHandler}
-      />
-
-      <Button text="מעוניין לכתוב לזכרו" />
-    </div>
+          <Button text="מעוניין לכתוב לזכרו" />
+        </div>
+      )}
+    </>
   );
 };
 

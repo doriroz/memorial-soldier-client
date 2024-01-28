@@ -45,7 +45,7 @@ const IntersectionProvider = ({ children }) => {
       h1Sec1Observer.observe(h1Sec1Ref.current);
       h1Sec2Observer.observe(h1Sec2Ref.current);
 
-      // setTimeout(continousIntersecting, 1000);
+      setTimeout(continousIntersecting, 1000);
     };
     continousIntersecting();
   }, []);
