@@ -71,8 +71,10 @@ const Carusel = (props) => {
   // let index = 0;
 
   // useEffect(() => {
-  //   prevRef.current.style.opacity = 0;
-  // }, []);
+  //   if (prevRef) {
+  //     prevRef.current?.style.opacity = 0;
+  //   }
+  // }, [isLoading]);
 
   let notesArray = [];
   useEffect(() => {
@@ -82,22 +84,27 @@ const Carusel = (props) => {
       setNotesData(notesArray);
       setIsLoading(false);
 
-      prevRef.current.style.opacity = 0;
+      // prevRef.current.style.opacity = 0;
     };
 
     fetchNotes();
-  }, [notesData]);
+  }, []);
+
+  // notesData
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
 
     prevRef.current.style.opacity = 1;
     nextRef.current.style.opacity = 1;
+    nextRef.current.disabled = false;
     if (newIndex == 0) {
       prevRef.current.style.opacity = 0;
-      nextRef.current.style.opacity = 1;
+      prevRef.current.disabled = true;
+      // nextRef.current.style.opacity = 1;
     }
 
+    console.log(noteRef.current.getNoteWidth());
     caruselRef.current.style.transform = `translateX(${
       -newIndex * noteRef.current.getNoteWidth()
     }px)`;
@@ -112,10 +119,12 @@ const Carusel = (props) => {
     const arrLength = caruselRef.current.children.length;
 
     prevRef.current.style.opacity = 1;
+    prevRef.current.disabled = false;
     nextRef.current.style.opacity = 1;
     if (newIndex == arrLength - 3) {
-      prevRef.current.style.opacity = 1;
+      // prevRef.current.style.opacity = 1;
       nextRef.current.style.opacity = 0;
+      nextRef.current.disabled = true;
     }
 
     caruselRef.current.style.transform = `translateX(${
@@ -138,13 +147,17 @@ const Carusel = (props) => {
     const arrLength = caruselRef.current.children.length;
     prevRef.current.style.opacity = 1;
     nextRef.current.style.opacity = 1;
+    prevRef.current.disabled = false;
+    nextRef.current.disabled = false;
     if (idx == 0) {
       prevRef.current.style.opacity = 0;
+      prevRef.current.disabled = true;
       nextRef.current.style.opacity = 1;
     }
     if (idx == arrLength - 3) {
       prevRef.current.style.opacity = 1;
       nextRef.current.style.opacity = 0;
+      nextRef.current.disabled = true;
     }
 
     caruselRef.current.style.transform = `translateX(${
@@ -153,6 +166,7 @@ const Carusel = (props) => {
     console.log("idx: " + idx);
 
     changeHandler(idx);
+    setIndex(idx);
   };
 
   return (

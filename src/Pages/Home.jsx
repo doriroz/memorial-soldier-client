@@ -19,19 +19,19 @@ import { getNotes, getNotesAsync } from "../UtilsRoute/utils";
 
 const Home = () => {
   const scrollRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [notesData, setNotesData] = useState();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [notesData, setNotesData] = useState();
 
-  useEffect(() => {
-    const fetchNotes = async () => {
-      const notesArray = await getNotesAsync("notes/");
-      console.log(notesArray);
-      setNotesData(notesArray);
-      setIsLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchNotes = async () => {
+  //     const notesArray = await getNotesAsync("notes/");
+  //     console.log(notesArray);
+  //     setNotesData(notesArray);
+  //     setIsLoading(false);
+  //   };
 
-    fetchNotes();
-  }, [notesData]);
+  //   fetchNotes();
+  // }, [notesData]);
 
   useEffect(() => {
     window.onscroll = () => {

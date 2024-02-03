@@ -7,16 +7,17 @@ const app = express();
 
 const corsOption = {
   origin: "http://localhost:5173",
-  methods: "GET POST PUT DELETE",
+  methods: "GET ,POST ,PUT ,DELETE",
   credentials: true,
 };
 
 app.use(cors(corsOption));
+app.use(express.json());
 
-app.use((req, res, next) => {
-  res.setHeader("Cache-Control", "no-store");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Cache-Control", "no-store");
+//   next();
+// });
 
 app.use("/", router);
 

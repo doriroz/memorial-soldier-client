@@ -40,14 +40,21 @@ form div {
   width: 47rem;
   border-radius: 10px;
   border: none;
-  color: aliceblue;
-  background-color: cadetblue;
+  color: bisque;
+  background-color: darkslategray;
   font-family: "Amatic SC";
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 1rem;
   cursor: pointer;
   margin-top: 1rem;
+}
+
+.btn_disabled {
+  transform: scale(1.1);
+  transition: all 0.5s;
+  color: aliceblue;
+  background-color: cadetblue;
 }
 
 textarea,

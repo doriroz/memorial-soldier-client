@@ -10,6 +10,12 @@
   gap: 10px;
 }
 
+/* .carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  width: 166vw;
+} */
 /* .carousel .note-card {
   flex: 0 0 auto;
   padding: 20px;

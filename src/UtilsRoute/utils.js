@@ -18,4 +18,22 @@ export const getNotesAsync = async (route) => {
   }
 };
 
+export const addNoteAsync = async (route, elemBody) => {
+  console.log(elemBody);
+
+  try {
+    const response = await fetch("http://localhost:3000/notes/" + route, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(elemBody),
+    });
+
+    window.location.href = "http://localhost:5173";
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};
 // export default getNotes;
