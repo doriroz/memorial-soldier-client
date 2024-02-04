@@ -68,7 +68,6 @@ const Carusel = (props) => {
   const nextRef = useRef();
   const caruselRef = useRef();
   const noteRef = useRef();
-  // let index = 0;
 
   // useEffect(() => {
   //   if (prevRef) {
@@ -83,14 +82,10 @@ const Carusel = (props) => {
       console.log(notesArray);
       setNotesData(notesArray);
       setIsLoading(false);
-
-      // prevRef.current.style.opacity = 0;
+      prevRef.current.style.opacity = 0;
     };
-
     fetchNotes();
   }, []);
-
-  // notesData
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
@@ -101,7 +96,6 @@ const Carusel = (props) => {
     if (newIndex == 0) {
       prevRef.current.style.opacity = 0;
       prevRef.current.disabled = true;
-      // nextRef.current.style.opacity = 1;
     }
 
     console.log(noteRef.current.getNoteWidth());
@@ -122,7 +116,6 @@ const Carusel = (props) => {
     prevRef.current.disabled = false;
     nextRef.current.style.opacity = 1;
     if (newIndex == arrLength - 3) {
-      // prevRef.current.style.opacity = 1;
       nextRef.current.style.opacity = 0;
       nextRef.current.disabled = true;
     }
@@ -171,43 +164,6 @@ const Carusel = (props) => {
 
   return (
     <>
-      {/* <div className={classes["carousel-container"]}>
-        <div className={classes.carousel} ref={caruselRef}>
-          {props.noteData.map((note, i) => {
-            return (
-              <Note
-                contact={note.contact}
-                context={note.context}
-                ref={noteRef}
-                key={i}
-              />
-            );
-          })}
-        </div>
-        <button
-          className={classes["prev-btn"]}
-          ref={prevRef}
-          onClick={prevHandler}
-        >
-          ←
-        </button>
-        <button
-          className={classes["next-btn"]}
-          ref={nextRef}
-          onClick={nextHandler}
-        >
-          →
-        </button>
-        <Dots
-          dotArr={buttonsChecked}
-          changeHandler={changeHandler}
-          dotHandler={dotHandler}
-          prev={prevHandler}
-          next={nextHandler}
-        />
-
-        <Button text="מעוניין לכתוב לזכרו" />
-      </div> */}
       {isLoading ? <div className={classes.loader}></div> : null}
       {!isLoading && (
         <div className={classes["carousel-container"]}>
