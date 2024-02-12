@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "backend": "node ../vite-project/src/Backend/HeroDBConnection.js",
+    "start": "concurrently \"npm run backend\" \"npm run dev\"",
     "build": "vite build",
     "deploy": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -24,6 +26,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
