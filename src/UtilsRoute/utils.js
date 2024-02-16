@@ -1,14 +1,14 @@
-const APP_PATH = "http://localhost:3000/api/";
+const APP_PATH = "https://memorial-soldier-server.onrender.com/";
 
 export const getNotes = (route) => {
-  return fetch("http://localhost:3000/" + route)
+  return fetch(APP_PATH + route)
     .then((response) => response.json())
     .catch((error) => console.log(error.message));
 };
 
 export const getNotesAsync = async (route) => {
   try {
-    const response = await fetch("http://localhost:3000/" + route);
+    const response = await fetch(APP_PATH + route);
     const data = await response.json();
     console.log(data);
     return data;
@@ -22,7 +22,7 @@ export const addNoteAsync = async (route, elemBody) => {
   console.log(elemBody);
 
   try {
-    const response = await fetch("http://localhost:3000/notes/" + route, {
+    const response = await fetch(APP_PATH + route, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const addNoteAsync = async (route, elemBody) => {
       body: JSON.stringify(elemBody),
     });
 
-    window.location.href = "http://localhost:5173";
+    window.location.href = "https://memorial-soldier.netlify.app/";
   } catch (error) {
     console.log(error);
     throw new Error(error.message);
