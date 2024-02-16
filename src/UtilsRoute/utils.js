@@ -1,4 +1,4 @@
-const APP_PATH = "https://memorial-soldier.onrender.com/";
+const APP_PATH = "https://memorial-api.onrender.com/";
 
 export const getNotes = (route) => {
   return fetch(APP_PATH + route)
