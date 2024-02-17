@@ -18,6 +18,8 @@ const AddNote = () => {
       isDisabled
     ) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   };
 

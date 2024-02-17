@@ -69,12 +69,6 @@ const Carusel = (props) => {
   const caruselRef = useRef();
   const noteRef = useRef();
 
-  // useEffect(() => {
-  //   if (prevRef) {
-  //     prevRef.current?.style.opacity = 0;
-  //   }
-  // }, [isLoading]);
-
   let notesArray = [];
   useEffect(() => {
     const fetchNotes = async () => {
@@ -89,7 +83,7 @@ const Carusel = (props) => {
 
   useEffect(() => {
     prevRef.current.style.opacity = 0;
-  }, [isLoading]);
+  }, [notesArray]);
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
