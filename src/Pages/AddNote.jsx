@@ -17,8 +17,10 @@ const AddNote = () => {
       contextRef.current.value != ""
       // isDisabled
     ) {
+      console.log("disabled false");
       setIsDisabled(false);
     } else {
+      console.log("disabled true");
       setIsDisabled(true);
     }
   };
