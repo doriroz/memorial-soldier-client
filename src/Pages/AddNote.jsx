@@ -13,10 +13,8 @@ const AddNote = () => {
     console.log("contactRef : " + contactRef.current.value);
     console.log("contextRef : " + contextRef.current.value);
     if (contactRef.current.value != "" && contextRef.current.value != "") {
-      // console.log("disabled false");
       setIsDisabled(false);
     } else {
-      // console.log("disabled true");
       setIsDisabled(true);
     }
   };
