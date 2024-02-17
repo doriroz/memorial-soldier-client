@@ -76,14 +76,14 @@ const Carusel = (props) => {
       console.log(notesArray);
       setNotesData(notesArray);
       setIsLoading(false);
-      // prevRef.current.style.opacity = 0;
+      prevRef.current.style.opacity = 0;
     };
     fetchNotes();
   }, []);
 
-  useEffect(() => {
-    prevRef.current.style.opacity = 0;
-  }, [notesArray]);
+  // useEffect(() => {
+  //   prevRef.current.style.opacity = 0;
+  // }, [notesArray]);
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
