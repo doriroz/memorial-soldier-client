@@ -29,7 +29,8 @@ const AddNote = () => {
     };
     console.log(e.target[0].value);
     console.log(e.target[1].value);
-    addNoteAsync("addnote/", formData);
+    addNoteAsync("notes/", formData);
+    // addNoteAsync("addnote/", formData);
   };
 
   const buttonStyled = isDisabled
