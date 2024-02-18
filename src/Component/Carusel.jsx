@@ -90,9 +90,7 @@ const Carusel = (props) => {
   // }, []);
 
   useEffect(() => {
-    console.log("isLoading: " + isLoading);
     if (prevRef.current) prevRef.current.style.opacity = 0;
-    console.log(prevRef.current.style.opacity);
   }, [prevRef.current]);
 
   const prevHandler = () => {
