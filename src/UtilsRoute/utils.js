@@ -7,15 +7,17 @@ export const getNotes = (route) => {
 };
 
 export const getNotesAsync = async (route) => {
+  let data;
   try {
     const response = await fetch(APP_PATH + route);
-    const data = await response.json();
-    console.log(data);
-    return data;
+    data = await response.json();
+    // console.log(data);
+    // return data;
   } catch (error) {
     console.log(error);
-    throw Error(error.message);
+    // throw Error(error.message);
   }
+  return data;
 };
 
 export const addNoteAsync = async (route, elemBody) => {
