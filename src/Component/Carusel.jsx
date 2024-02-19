@@ -96,7 +96,7 @@ const Carusel = (props) => {
 
   useEffect(() => {
     if (prevRef.current) prevRef.current.style.opacity = 0;
-  }, [isLoading, prevRef.current]);
+  }, [isLoading]);
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
