@@ -64,10 +64,12 @@ const Carusel = (props) => {
   );
   const [isLoading, setIsLoading] = useState(true);
   const [notesData, setNotesData] = useState();
+  const [isRecieved, setIsRecieved] = useState(false);
   const prevRef = useRef();
   const nextRef = useRef();
   const caruselRef = useRef();
   const noteRef = useRef();
+  const btnRef = useRef();
 
   let notesArray = [];
   useEffect(() => {
@@ -76,6 +78,7 @@ const Carusel = (props) => {
       console.log(notesArray);
       if (!notesArray) {
         setNotesData(noteArr);
+        setIsRecieved(true);
       } else {
         setNotesData(notesArray);
       }
@@ -87,6 +90,11 @@ const Carusel = (props) => {
   useEffect(() => {
     if (prevRef.current) prevRef.current.style.opacity = 0;
   }, [isLoading]);
+
+  useEffect(() => {
+    console.log(isRecieved);
+    if (isRecieved && btnRef.current) btnRef.current.style.opacity = 0;
+  }, [isRecieved]);
 
   const prevHandler = () => {
     const newIndex = Math.max(index - 1, 0);
@@ -201,8 +209,8 @@ const Carusel = (props) => {
             prev={prevHandler}
             next={nextHandler}
           />
-
-          <Button text="מעוניין לכתוב לזכרו" />
+          <Button ref={btnRef} text="מעוניין לכתוב לזכרו" />
+          {/* <button ref={btnRef}>מעוניין לכתוב לזכרו</button> */}
         </div>
       )}
     </>
