@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  /* height: 30rem; */
-  /* padding-bottom: 10rem; */
 }
 
 .video-card {
@@ -28,9 +26,6 @@ h3 {
   font-size: 28px;
   margin: 0.7rem;
   color: darkolivegreen;
-  /* padding: 1rem;
-  border-top: 1rem solid #ccc;
-  border-bottom: 1rem solid #ccc; */
 }
 
 .span:hover {
@@ -80,22 +75,37 @@ h4 {
   width: 100vw;
   margin: 0 auto;
   height: 11rem;
-  /* background: #fff;
-  color: black; */
 }
 
 .butterfly {
   height: 4rem;
 }
 
-@keyframes scaleAnimation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+.tavs {
+  height: 8rem;
 }
+
+/* .tooltip {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-family: "Amatic SC";
+  letter-spacing: 0.2rem;
+  word-spacing: 2px;
+  white-space: nowrap;
+  animation: slideInUp 1s ease-in-out;
+}
+
+.ttpimg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgAnimation {
+  animation: slideInDown 1s ease-in-out;
+} */
 
 @keyframes slideOutUp {
   from {
@@ -104,5 +114,27 @@ h4 {
 
   to {
     transform: translateY(-50%);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }

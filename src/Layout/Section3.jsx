@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { inerSecContext } from "../Component/IntersectionProvider";
-// import Carusel from "./Carusel";
-// import Videos from "./Videos";
 
 const Section3 = ({ children }) => {
   const { h1Sec2Ref } = useContext(inerSecContext);

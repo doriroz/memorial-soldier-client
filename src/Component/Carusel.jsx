@@ -65,6 +65,7 @@ const Carusel = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [notesData, setNotesData] = useState();
   const [isRecieved, setIsRecieved] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const prevRef = useRef();
   const nextRef = useRef();
   const caruselRef = useRef();
@@ -93,7 +94,10 @@ const Carusel = (props) => {
 
   useEffect(() => {
     console.log(isRecieved);
-    if (isRecieved && btnRef.current) btnRef.current.style.opacity = 0;
+    if (isRecieved && btnRef.current) {
+      btnRef.current.style.opacity = 0;
+      setIsDisabled(true);
+    }
   }, [isRecieved]);
 
   const prevHandler = () => {
@@ -209,7 +213,11 @@ const Carusel = (props) => {
             prev={prevHandler}
             next={nextHandler}
           />
-          <Button ref={btnRef} text="מעוניין לכתוב לזכרו" />
+          <Button
+            ref={btnRef}
+            text="מעוניין לכתוב לזכרו"
+            isDisabled={isDisabled}
+          />
           {/* <button ref={btnRef}>מעוניין לכתוב לזכרו</button> */}
         </div>
       )}
