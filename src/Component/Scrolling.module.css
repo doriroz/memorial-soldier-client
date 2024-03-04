@@ -4,6 +4,8 @@
   position: relative;
   text-align: right;
   margin-bottom: 5rem;
+  background-color: rgb(217, 227, 240);
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
 }
 
 .image-and-text-container {

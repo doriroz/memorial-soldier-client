@@ -47,12 +47,6 @@ const Carusel = (props) => {
     },
   ];
 
-  // context: `כשעמדתי בכיתה וסיפרתי על הגבורה של רועי קליין  היד, קצין שקפץ על רימון
-  //       <br />
-  //       והציל את חבריו החיילים במלחמת לבנון השניה, לא העליתי בדעתי שאחד התלמידים שלי
-  //       <br />
-  //       יפעל באותה גבורה ויקפוץ על רימון כדי להציל את חבריו`,
-
   const dotSteps = Math.round(Math.ceil(noteArr.length / 2));
   const dotStepArr = Array.from({ length: dotSteps }, (_, i) => {
     i + 1;
@@ -218,7 +212,6 @@ const Carusel = (props) => {
             text="מעוניין לכתוב לזכרו"
             isDisabled={isDisabled}
           />
-          {/* <button ref={btnRef}>מעוניין לכתוב לזכרו</button> */}
         </div>
       )}
     </>
